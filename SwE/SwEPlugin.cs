@@ -10,6 +10,7 @@ namespace SwE
     {
         public override void OnRegister()
         {
+            EarlyAccessDisclaimerPatch.Apply();
             SteamBuildIDLabelPatch.Apply();
             WindowTitlePatch.Apply();
         }
