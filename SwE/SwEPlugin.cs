@@ -1,5 +1,6 @@
 using BepInEx;
 using SeLib.API;
+using SwE.Patches;
 
 namespace SwE
 {
@@ -9,7 +10,8 @@ namespace SwE
     {
         public override void OnRegister()
         {
-            
+            SteamBuildIDLabelPatch.Apply();
+            WindowTitlePatch.Apply();
         }
     }
 }
