@@ -4,12 +4,14 @@ namespace SwE.Patches;
 
 internal static class SteamBuildIDLabelPatch
 {
+    private const string DEBUG_LABEL = "[INDEV]";
+    
     public static void Apply()
     {
         On.RoR2.UI.SteamBuildIdLabel.Start += (_, self) =>
         {
             var text = $"{SwEPlugin.Instance.Name} ver. {SwEPlugin.Instance.Version}";
-            text += SwEPlugin.Instance.IsDebug ? " [INDEV]" : "";
+            text += SwEPlugin.Instance.IsDebug ? $" {DEBUG_LABEL}" : "";
             
             self.GetComponent<TextMeshProUGUI>().text = text;
         };
